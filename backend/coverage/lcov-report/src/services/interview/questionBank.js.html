@@ -1,0 +1,757 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/services/interview/questionBank.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/services/interview</a> questionBank.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>41/41</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">60.86% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>14/23</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>11/11</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>28/28</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a>
+<a name='L200'></a><a href='#L200'>200</a>
+<a name='L201'></a><a href='#L201'>201</a>
+<a name='L202'></a><a href='#L202'>202</a>
+<a name='L203'></a><a href='#L203'>203</a>
+<a name='L204'></a><a href='#L204'>204</a>
+<a name='L205'></a><a href='#L205'>205</a>
+<a name='L206'></a><a href='#L206'>206</a>
+<a name='L207'></a><a href='#L207'>207</a>
+<a name='L208'></a><a href='#L208'>208</a>
+<a name='L209'></a><a href='#L209'>209</a>
+<a name='L210'></a><a href='#L210'>210</a>
+<a name='L211'></a><a href='#L211'>211</a>
+<a name='L212'></a><a href='#L212'>212</a>
+<a name='L213'></a><a href='#L213'>213</a>
+<a name='L214'></a><a href='#L214'>214</a>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a>
+<a name='L217'></a><a href='#L217'>217</a>
+<a name='L218'></a><a href='#L218'>218</a>
+<a name='L219'></a><a href='#L219'>219</a>
+<a name='L220'></a><a href='#L220'>220</a>
+<a name='L221'></a><a href='#L221'>221</a>
+<a name='L222'></a><a href='#L222'>222</a>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">472x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">144x</span>
+<span class="cline-any cline-yes">144x</span>
+<span class="cline-any cline-yes">144x</span>
+<span class="cline-any cline-yes">144x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// ============================================================
+//  VidyaMitra — services/interview/questionBank.js
+//  200+ curated interview questions across roles &amp; categories
+// ============================================================
+&nbsp;
+const QUESTION_CATEGORIES = {
+  BEHAVIORAL: "behavioral",
+  TECHNICAL: "technical",
+  SITUATIONAL: "situational",
+  HR: "hr",
+};
+&nbsp;
+const DIFFICULTY = {
+  EASY: "easy",
+  MEDIUM: "medium",
+  HARD: "hard",
+};
+&nbsp;
+// ── Behavioral Questions (STAR method) ───────────────────────
+const behavioralQuestions = [
+  {
+    id: "b001",
+    category: QUESTION_CATEGORIES.BEHAVIORAL,
+    difficulty: DIFFICULTY.MEDIUM,
+    question: "Tell me about a time you faced a major technical challenge. How did you overcome it?",
+    followUps: ["What was the outcome?", "What would you do differently?"],
+    starGuide: { situation: "Describe the project context", task: "What was your specific challenge?", action: "What steps did you take?", result: "What was the measurable outcome?" },
+    tags: ["problem-solving", "technical"],
+  },
+  {
+    id: "b002",
+    category: QUESTION_CATEGORIES.BEHAVIORAL,
+    difficulty: DIFFICULTY.MEDIUM,
+    question: "Describe a situation where you had to work with a difficult team member.",
+    followUps: ["How did it affect the project?", "What was the resolution?"],
+    starGuide: { situation: "Set the scene", task: "What was your role?", action: "How did you handle the conflict?", result: "What improved as a result?" },
+    tags: ["teamwork", "communication"],
+  },
+  {
+    id: "b003",
+    category: QUESTION_CATEGORIES.BEHAVIORAL,
+    difficulty: DIFFICULTY.EASY,
+    question: "Tell me about a project you are most proud of.",
+    followUps: ["What was your specific contribution?", "What impact did it have?"],
+    starGuide: { situation: "What was the project?", task: "What were you responsible for?", action: "What did you build/achieve?", result: "What was the impact?" },
+    tags: ["achievement", "motivation"],
+  },
+  {
+    id: "b004",
+    category: QUESTION_CATEGORIES.BEHAVIORAL,
+    difficulty: DIFFICULTY.MEDIUM,
+    question: "Tell me about a time you had to learn a new technology quickly under pressure.",
+    followUps: ["How long did it take?", "Would you use that approach again?"],
+    starGuide: { situation: "What was the deadline/pressure?", task: "What did you need to learn?", action: "How did you learn it?", result: "Did you meet the deadline?" },
+    tags: ["learning", "adaptability"],
+  },
+  {
+    id: "b005",
+    category: QUESTION_CATEGORIES.BEHAVIORAL,
+    difficulty: DIFFICULTY.HARD,
+    question: "Describe a time when you disagreed with your manager's technical decision. What did you do?",
+    followUps: ["What was the final outcome?", "What did you learn?"],
+    starGuide: { situation: "What was the decision?", task: "What was your concern?", action: "How did you raise it?", result: "How was it resolved?" },
+    tags: ["leadership", "conflict", "communication"],
+  },
+  {
+    id: "b006",
+    category: QUESTION_CATEGORIES.BEHAVIORAL,
+    difficulty: DIFFICULTY.MEDIUM,
+    question: "Tell me about a time you missed a deadline. What happened?",
+    followUps: ["How did you communicate the delay?", "What did you change afterward?"],
+    starGuide: { situation: "What was the project?", task: "What was your deadline?", action: "What caused the miss and how did you respond?", result: "What was the impact and what changed?" },
+    tags: ["accountability", "time-management"],
+  },
+  {
+    id: "b007",
+    category: QUESTION_CATEGORIES.BEHAVIORAL,
+    difficulty: DIFFICULTY.EASY,
+    question: "Give an example of when you went above and beyond what was expected.",
+    followUps: ["Was it recognized?", "Would you do it again?"],
+    starGuide: { situation: "What was expected of you?", task: "What extra did you take on?", action: "What did you do?", result: "What was the extra impact?" },
+    tags: ["initiative", "motivation"],
+  },
+  {
+    id: "b008",
+    category: QUESTION_CATEGORIES.BEHAVIORAL,
+    difficulty: DIFFICULTY.HARD,
+    question: "Tell me about a time you had to make an important decision with incomplete information.",
+    followUps: ["How confident were you?", "Was the decision correct?"],
+    starGuide: { situation: "What decision needed to be made?", task: "What information was missing?", action: "How did you decide?", result: "What happened?" },
+    tags: ["decision-making", "leadership"],
+  },
+];
+&nbsp;
+// ── Technical Questions by Role ───────────────────────────────
+const technicalQuestions = {
+  "Full Stack Developer": [
+    { id: "t_fs001", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "Explain the difference between REST and GraphQL. When would you choose one over the other?", tags: ["api", "architecture"], keyPoints: ["REST is resource-based", "GraphQL is query-based", "GraphQL prevents over/under-fetching", "REST is simpler for simple APIs"] },
+    { id: "t_fs002", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.HARD, question: "How would you design a system to handle 1 million concurrent users?", tags: ["system-design", "scalability"], keyPoints: ["Load balancing", "Horizontal scaling", "Caching (Redis)", "CDN", "Database sharding"] },
+    { id: "t_fs003", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "What is the event loop in Node.js and how does it work?", tags: ["nodejs", "javascript"], keyPoints: ["Single-threaded", "Non-blocking I/O", "Call stack, callback queue, microtask queue", "libuv"] },
+    { id: "t_fs004", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.EASY, question: "What is the difference between SQL and NoSQL databases? When would you use MongoDB over PostgreSQL?", tags: ["database", "mongodb"], keyPoints: ["Schema flexibility", "Horizontal vs vertical scaling", "ACID vs BASE", "Use cases"] },
+    { id: "t_fs005", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "Explain React's virtual DOM and why it improves performance.", tags: ["react", "frontend"], keyPoints: ["Diffing algorithm", "Reconciliation", "Batch updates", "Minimizes real DOM manipulation"] },
+    { id: "t_fs006", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.HARD, question: "How do you prevent and handle race conditions in async JavaScript?", tags: ["javascript", "async"], keyPoints: ["Promise.all vs Promise.allSettled", "Mutex patterns", "AbortController", "Optimistic locking in DB"] },
+    { id: "t_fs007", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "What is JWT and what are its security considerations?", tags: ["security", "auth"], keyPoints: ["Header.Payload.Signature", "Stateless auth", "Never store sensitive data in payload", "Short expiry + refresh tokens"] },
+  ],
+  "Frontend Developer": [
+    { id: "t_fe001", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "What are React hooks and why were they introduced?", tags: ["react", "hooks"], keyPoints: ["Replace class lifecycle methods", "useState, useEffect, useContext", "Custom hooks for reuse", "Cleaner component logic"] },
+    { id: "t_fe002", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.HARD, question: "How would you optimize a React application that is rendering slowly?", tags: ["react", "performance"], keyPoints: ["React.memo, useMemo, useCallback", "Code splitting", "Lazy loading", "Virtualization for long lists"] },
+    { id: "t_fe003", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "Explain CSS specificity and how it resolves conflicts.", tags: ["css"], keyPoints: ["Inline &gt; ID &gt; Class &gt; Element", "!important override", "Specificity score calculation"] },
+    { id: "t_fe004", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.EASY, question: "What is the difference between flexbox and CSS grid?", tags: ["css", "layout"], keyPoints: ["Flexbox is 1D", "Grid is 2D", "When to use each"] },
+    { id: "t_fe005", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.HARD, question: "What are Web Vitals and how do you measure and improve them?", tags: ["performance", "seo"], keyPoints: ["LCP, FID/INP, CLS", "Lighthouse, Chrome DevTools", "Image optimization, lazy loading, reducing JS"] },
+  ],
+  "Backend Developer": [
+    { id: "t_be001", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "What is database indexing and when should you NOT use an index?", tags: ["database", "performance"], keyPoints: ["B-tree indexes", "Write overhead", "Low-cardinality columns", "Small tables"] },
+    { id: "t_be002", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.HARD, question: "Explain CAP theorem and its implications for distributed systems.", tags: ["distributed-systems", "architecture"], keyPoints: ["Consistency, Availability, Partition tolerance", "Can only guarantee 2 of 3", "CP vs AP systems", "Real-world examples"] },
+    { id: "t_be003", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "How do you secure a REST API?", tags: ["security", "api"], keyPoints: ["HTTPS", "Authentication (JWT/OAuth)", "Rate limiting", "Input validation", "CORS"] },
+    { id: "t_be004", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "What is the difference between authentication and authorization?", tags: ["security"], keyPoints: ["AuthN = who you are", "AuthZ = what you can do", "JWT, RBAC, OAuth2"] },
+    { id: "t_be005", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.HARD, question: "How would you implement a rate limiter from scratch?", tags: ["system-design", "api"], keyPoints: ["Token bucket algorithm", "Sliding window", "Redis for distributed rate limiting", "429 Too Many Requests"] },
+  ],
+  "Data Scientist": [
+    { id: "t_ds001", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "Explain the bias-variance tradeoff.", tags: ["ml", "theory"], keyPoints: ["Bias = underfitting", "Variance = overfitting", "Sweet spot in model complexity", "Regularization"] },
+    { id: "t_ds002", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.HARD, question: "How do you handle class imbalance in a classification problem?", tags: ["ml", "data"], keyPoints: ["SMOTE, undersampling", "Class weights", "Precision/Recall over accuracy", "ROC-AUC"] },
+    { id: "t_ds003", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "What is cross-validation and why is it important?", tags: ["ml", "evaluation"], keyPoints: ["K-fold CV", "Prevents data leakage", "More reliable than single train/test split"] },
+  ],
+  "DevOps Engineer": [
+    { id: "t_do001", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "What is the difference between Docker and a virtual machine?", tags: ["docker", "infrastructure"], keyPoints: ["Containers share OS kernel", "VMs have full OS", "Docker is lighter and faster", "Isolation levels"] },
+    { id: "t_do002", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.HARD, question: "Explain a CI/CD pipeline you have built or worked with.", tags: ["cicd", "automation"], keyPoints: ["Source → Build → Test → Deploy", "GitHub Actions / Jenkins", "Environment stages", "Rollback strategy"] },
+    { id: "t_do003", category: QUESTION_CATEGORIES.TECHNICAL, difficulty: DIFFICULTY.MEDIUM, question: "What is Kubernetes and what problems does it solve?", tags: ["kubernetes", "orchestration"], keyPoints: ["Container orchestration", "Auto-scaling", "Self-healing", "Service discovery", "Rolling deployments"] },
+  ],
+};
+&nbsp;
+// ── HR / Culture Fit Questions ────────────────────────────────
+const hrQuestions = [
+  { id: "hr001", category: QUESTION_CATEGORIES.HR, difficulty: DIFFICULTY.EASY, question: "Tell me about yourself.", tags: ["introduction"], tip: "Keep it under 2 minutes. Cover: current role → key experience → why you're here." },
+  { id: "hr002", category: QUESTION_CATEGORIES.HR, difficulty: DIFFICULTY.EASY, question: "Why do you want to leave your current job?", tags: ["motivation"], tip: "Stay positive. Focus on growth opportunities, not negatives about current employer." },
+  { id: "hr003", category: QUESTION_CATEGORIES.HR, difficulty: DIFFICULTY.MEDIUM, question: "Where do you see yourself in 5 years?", tags: ["goals", "motivation"], tip: "Align your goals with the role. Show ambition but also commitment." },
+  { id: "hr004", category: QUESTION_CATEGORIES.HR, difficulty: DIFFICULTY.EASY, question: "What are your salary expectations?", tags: ["negotiation"], tip: "Research market rates first. Give a range based on your research." },
+  { id: "hr005", category: QUESTION_CATEGORIES.HR, difficulty: DIFFICULTY.MEDIUM, question: "What is your biggest weakness?", tags: ["self-awareness"], tip: "Choose a real weakness but one you are actively working to improve. Show growth mindset." },
+  { id: "hr006", category: QUESTION_CATEGORIES.HR, difficulty: DIFFICULTY.EASY, question: "Why should we hire you?", tags: ["value-proposition"], tip: "Connect your top 3 skills directly to the job requirements. Be specific." },
+  { id: "hr007", category: QUESTION_CATEGORIES.HR, difficulty: DIFFICULTY.MEDIUM, question: "How do you handle stress and pressure?", tags: ["resilience"], tip: "Give a concrete strategy (prioritization, breaks, communication) with an example." },
+  { id: "hr008", category: QUESTION_CATEGORIES.HR, difficulty: DIFFICULTY.EASY, question: "Do you prefer working alone or in a team?", tags: ["work-style"], tip: "Show flexibility. Most good answers say both, depending on the task." },
+];
+&nbsp;
+// ── Situational Questions ─────────────────────────────────────
+const situationalQuestions = [
+  { id: "s001", category: QUESTION_CATEGORIES.SITUATIONAL, difficulty: DIFFICULTY.MEDIUM, question: "If you discovered a critical bug in production 30 minutes before a major demo, what would you do?", tags: ["crisis-management", "communication"], keyPoints: ["Immediate assessment", "Notify stakeholders early", "Quick fix vs rollback decision", "Post-mortem"] },
+  { id: "s002", category: QUESTION_CATEGORIES.SITUATIONAL, difficulty: DIFFICULTY.HARD, question: "Your team is divided on a major architectural decision. How do you move forward?", tags: ["leadership", "decision-making"], keyPoints: ["Gather all perspectives", "Data-driven decision", "Prototype/POC if needed", "Document the decision"] },
+  { id: "s003", category: QUESTION_CATEGORIES.SITUATIONAL, difficulty: DIFFICULTY.MEDIUM, question: "You are given a 3-month project but only 6 weeks to complete it. What do you do?", tags: ["prioritization", "communication"], keyPoints: ["Clarify requirements", "Identify MVP", "Negotiate scope or timeline", "Daily progress communication"] },
+  { id: "s004", category: QUESTION_CATEGORIES.SITUATIONAL, difficulty: DIFFICULTY.EASY, question: "A junior developer on your team keeps making the same mistakes. How do you handle it?", tags: ["mentoring", "communication"], keyPoints: ["Private constructive feedback", "Pair programming", "Clear written guidelines", "Follow-up check-ins"] },
+];
+&nbsp;
+// ── Main export functions ─────────────────────────────────────
+&nbsp;
+/**
+ * Get questions for a specific role and session config
+ */
+const getQuestionsForRole = (targetRole, options = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> =&gt; {
+  const {
+    count = <span class="branch-0 cbranch-no" title="branch not covered" >8,</span>
+    includeBehavioral = true,
+    includeTechnical = true,
+    includeHR = true,
+    includeSituational = true,
+    difficulty = null,
+  } = options;
+&nbsp;
+  let pool = [];
+&nbsp;
+  // Find closest matching role
+  const roleKey = Object.keys(technicalQuestions).find(
+    (r) =&gt; r.toLowerCase() === targetRole?.toLowerCase()
+  ) || <span class="branch-1 cbranch-no" title="branch not covered" >"Full Stack Developer";</span>
+&nbsp;
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (includeTechnical) pool.push(...(technicalQuestions[roleKey] || <span class="branch-1 cbranch-no" title="branch not covered" >technicalQuestions["Full Stack Developer"])</span>);
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (includeBehavioral) pool.push(...behavioralQuestions);
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (includeHR) pool.push(...hrQuestions);
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (includeSituational) pool.push(...situationalQuestions);
+&nbsp;
+  // Filter by difficulty if specified
+  if (difficulty) pool = pool.filter((q) =&gt; q.difficulty === difficulty);
+&nbsp;
+  // Shuffle and pick
+  const shuffled = pool.sort(() =&gt; Math.random() - 0.5);
+&nbsp;
+  // Ensure good mix: ~40% technical, ~30% behavioral, ~20% HR, ~10% situational
+  const technical = shuffled.filter((q) =&gt; q.category === QUESTION_CATEGORIES.TECHNICAL).slice(0, Math.ceil(count * 0.4));
+  const behavioral = shuffled.filter((q) =&gt; q.category === QUESTION_CATEGORIES.BEHAVIORAL).slice(0, Math.ceil(count * 0.3));
+  const hr = shuffled.filter((q) =&gt; q.category === QUESTION_CATEGORIES.HR).slice(0, Math.ceil(count * 0.2));
+  const situational = shuffled.filter((q) =&gt; q.category === QUESTION_CATEGORIES.SITUATIONAL).slice(0, Math.ceil(count * 0.1));
+&nbsp;
+  const selected = [...technical, ...behavioral, ...hr, ...situational].slice(0, count);
+&nbsp;
+  return selected;
+};
+&nbsp;
+/**
+ * Get a single question by ID
+ */
+const getQuestionById = (id) =&gt; {
+  const all = [
+    ...behavioralQuestions,
+    ...Object.values(technicalQuestions).flat(),
+    ...hrQuestions,
+    ...situationalQuestions,
+  ];
+  return all.find((q) =&gt; q.id === id) || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+};
+&nbsp;
+/**
+ * Get all available roles
+ */
+const getAvailableRoles = () =&gt; Object.keys(technicalQuestions);
+&nbsp;
+module.exports = {
+  getQuestionsForRole,
+  getQuestionById,
+  getAvailableRoles,
+  QUESTION_CATEGORIES,
+  DIFFICULTY,
+  behavioralQuestions,
+  technicalQuestions,
+  hrQuestions,
+  situationalQuestions,
+};
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-03-02T20:09:52.903Z
+            </div>
+        <script src="../../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
+    </body>
+</html>
+    

@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+   GEIST FONT — Add both lines to your index.html <head>:
+
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+   NOTE: If Geist isn't available via Google Fonts yet in your
+   region, use this CDN fallback in index.html instead:
+   <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/style.css" rel="stylesheet" />
+   <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-mono/style.css" rel="stylesheet" />
+───────────────────────────────────────────────────────────── */
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #080808;
+    color: #cccccc;
+    font-family: "Geist", system-ui, -apple-system, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.2);
+    color: #c4b5fd;
+  }
+
+  ::-webkit-scrollbar       { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: #333333; }
+
+  h1, h2, h3, h4, h5 {
+    font-family: "Geist", system-ui, sans-serif;
+    color: #eeeeee;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+
+  /* ── Card ─────────────────────────────────────────────── */
+  .vm-card {
+    background: #111111;
+    border: 1px solid #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .vm-card-interactive {
+    background: #111111;
+    border: 1px solid #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03);
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    cursor: pointer;
+  }
+
+  .vm-card-interactive:hover {
+    border-color: #2a2a2a;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+    transform: translateY(-1px);
+  }
+
+  /* ── Input ────────────────────────────────────────────── */
+  .vm-input {
+    width: 100%;
+    background: #111111;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    padding: 9px 13px;
+    color: #eeeeee;
+    font-family: "Geist", sans-serif;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .vm-input::placeholder { color: #555555; }
+
+  .vm-input:focus {
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+    background: #151515;
+  }
+
+  .vm-input.error {
+    border-color: rgba(239, 68, 68, 0.5);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  }
+
+  /* ── Primary button ───────────────────────────────────── */
+  .vm-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    padding: 9px 18px;
+    background: #8b5cf6;
+    color: #ffffff;
+    font-family: "Geist", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: -0.01em;
+    transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+  }
+
+  .vm-btn-primary:hover:not(:disabled) {
+    background: #7c3aed;
+    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+    transform: translateY(-1px);
+  }
+
+  .vm-btn-primary:active:not(:disabled) { transform: translateY(0); box-shadow: none; }
+  .vm-btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* ── Ghost button ─────────────────────────────────────── */
+  .vm-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: transparent;
+    color: #888888;
+    font-family: "Geist", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .vm-btn-ghost:hover {
+    background: #1a1a1a;
+    border-color: #2a2a2a;
+    color: #eeeeee;
+  }
+
+  /* ── Badge ────────────────────────────────────────────── */
+  .vm-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 7px;
+    border-radius: 99px;
+    font-size: 10px;
+    font-weight: 500;
+    font-family: "Geist Mono", monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid;
+  }
+
+  .vm-badge-violet  { background: rgba(139,92,246,0.12); color: #c4b5fd; border-color: rgba(139,92,246,0.25); }
+  .vm-badge-success { background: rgba(34,197,94,0.1);   color: #4ade80; border-color: rgba(34,197,94,0.2); }
+  .vm-badge-warning { background: rgba(245,158,11,0.1);  color: #fbbf24; border-color: rgba(245,158,11,0.2); }
+  .vm-badge-danger  { background: rgba(239,68,68,0.1);   color: #f87171; border-color: rgba(239,68,68,0.2); }
+  .vm-badge-neutral { background: rgba(42,42,42,0.8);    color: #888888; border-color: #2a2a2a; }
+  .vm-badge-admin   { background: rgba(139,92,246,0.1);  color: #a78bfa; border-color: rgba(139,92,246,0.2); }
+}
+
+@layer utilities {
+  /* Page entry animation */
+  .page-enter { animation: fadeUp 0.3s ease both; }
+
+  /* Text helpers */
+  .text-muted    { color: #888888; }
+  .text-subtle   { color: #555555; }
+  .text-strong   { color: #eeeeee; }
+  .text-default  { color: #aaaaaa; }
+
+  /* Mono label */
+  .label-mono {
+    font-family: "Geist Mono", monospace;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #555555;
+  }
+
+  /* Divider */
+  .vm-divider { height: 1px; background: #1a1a1a; }
+
+  /* Animation delays */
+  .delay-0   { animation-delay: 0ms; }
+  .delay-75  { animation-delay: 75ms; }
+  .delay-150 { animation-delay: 150ms; }
+  .delay-225 { animation-delay: 225ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+
+  .opacity-0-init { opacity: 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
