@@ -36,19 +36,29 @@ app.use(helmet());
 app.use(compression());
 
 // ── CORS ─────────────────────────────────────────────────────
-const allowedOrigins = [
+// FIX: read CLIENT_URL inside the callback so it's always fresh —
+// building the array at module load time meant CLIENT_URL was
+// undefined if the env var wasn't set before the first require().
+const STATIC_ORIGINS = [
   "http://localhost:5173",
   "http://localhost:3000",
   "http://127.0.0.1:5173",
   "http://127.0.0.1:3000",
-  process.env.CLIENT_URL,
-].filter(Boolean);
+];
 
 app.use(
   cors({
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) return callback(null, true);
+
+      const allowed = [
+        ...STATIC_ORIGINS,
+        process.env.CLIENT_URL,   // read fresh on every request
+      ].filter(Boolean);
+
+      if (allowed.includes(origin)) return callback(null, true);
+
+      logger.warn(`CORS blocked: ${origin} | allowed: ${allowed.join(", ")}`);
       callback(new Error(`CORS blocked: ${origin}`));
     },
     credentials: true,
@@ -58,8 +68,6 @@ app.use(
 );
 
 // ── Rate limiting ─────────────────────────────────────────────
-// Relaxed in development so hot reloads and rapid testing don't
-// hit 429 errors. Tightens automatically in production.
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: process.env.NODE_ENV === "production" ? 100 : 1000,
@@ -69,7 +77,6 @@ const limiter = rateLimit({
 });
 app.use("/api/", limiter);
 
-// Separate stricter limiter for auth endpoints (production only)
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: process.env.NODE_ENV === "production" ? 20 : 500,
@@ -87,7 +94,7 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(
   morgan("combined", {
     stream: { write: (msg) => logger.info(msg.trim()) },
-    skip: (req) => req.url === "/api/health",
+    skip:   (req)  => req.url === "/api/health",
   })
 );
 
@@ -95,7 +102,7 @@ app.use(
 app.use("/api/health",               healthRoutes);
 app.use("/api/auth",                 authRoutes);
 app.use("/api/auth",                 googleAuthRoutes);
-app.use("/api/auth",                 profileRoutes);      // PUT /api/auth/profile, /change-password, /notifications
+app.use("/api/auth",                 profileRoutes);
 app.use("/api/users",                userRoutes);
 app.use("/api/resumes",              resumeRoutes);
 app.use("/api/scores",               scoreRoutes);
@@ -103,15 +110,15 @@ app.use("/api/agent",                agentRoutes);
 app.use("/api/interview",            interviewRoutes);
 app.use("/api/jobs",                 jobMatchRoutes);
 app.use("/api/builder",              resumeBuilderRoutes);
-app.use("/api/tracker/applications", jobApplicationRoutes);  // matches frontend calls
+app.use("/api/tracker/applications", jobApplicationRoutes);
 app.use("/api/admin",                adminRoutes);
 
 app.get("/", (req, res) => {
   res.json({
     success: true,
-    message: "🎓 Welcome to VidyaMitra API",
+    message: "Welcome to VidyaMitra API",
     version: "1.0.0",
-    docs: "/api/health",
+    docs:    "/api/health",
   });
 });
 
