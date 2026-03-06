@@ -11,29 +11,32 @@ const router = express.Router();
 
 // ── Validation Rules ──────────────────────────────────────────
 const registerValidation = [
-  body("name").trim().notEmpty().withMessage("Name is required")
+  body("name")
+    .trim()
+    .notEmpty().withMessage("Name is required")
     .isLength({ min: 2, max: 60 }).withMessage("Name must be 2–60 characters"),
-  body("email").isEmail().withMessage("Valid email is required").normalizeEmail(),
-  body("password").isLength({ min: 8 }).withMessage("Password must be at least 8 characters")
-    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/).withMessage("Password must include uppercase, lowercase, and number"),
+  body("email")
+    .isEmail().withMessage("Valid email is required")
+    .normalizeEmail(),
+  // FIX: removed uppercase/lowercase/number regex — frontend only enforces
+  // 8-char minimum so users were getting silent 400s with no explanation.
+  // Password complexity is good UX only when the frontend shows the same rules.
+  body("password")
+    .isLength({ min: 8 }).withMessage("Password must be at least 8 characters"),
 ];
 
 const loginValidation = [
-  body("email").isEmail().withMessage("Valid email is required").normalizeEmail(),
-  body("password").notEmpty().withMessage("Password is required"),
+  body("email")
+    .isEmail().withMessage("Valid email is required")
+    .normalizeEmail(),
+  body("password")
+    .notEmpty().withMessage("Password is required"),
 ];
 
 // ── Routes ────────────────────────────────────────────────────
-// POST /api/auth/register
 router.post("/register", registerValidation, register);
-
-// POST /api/auth/login
-router.post("/login", loginValidation, login);
-
-// GET /api/auth/me  (protected)
-router.get("/me", protect, getMe);
-
-// POST /api/auth/logout  (protected)
-router.post("/logout", protect, logout);
+router.post("/login",    loginValidation,    login);
+router.get("/me",        protect,            getMe);
+router.post("/logout",   protect,            logout);
 
 module.exports = router;
